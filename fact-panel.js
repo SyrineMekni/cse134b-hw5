@@ -39,8 +39,9 @@ class FactPanel extends HTMLElement {
         this.appendChild(fact);
         this.appendChild(button);
         this.appendChild(status);
+        status.hidden = this.hasAttribute("compact");
     }
-}
+
 
 
     attributeChangedCallback() {
@@ -50,6 +51,23 @@ class FactPanel extends HTMLElement {
             status.hidden = this.hasAttribute("compact");
         }
     }
-
+}
 
 customElements.define("fact-panel", FactPanel);
+
+
+
+const factPanel = document.querySelector("fact-panel");
+const toggleButton = document.querySelector("#facts-toggle");
+
+toggleButton.addEventListener("click", () => {
+    const compact = factPanel.toggleAttribute("compact");
+
+    toggleButton.textContent = compact
+        ? "Show Details"
+        : "Hide Details";
+});
+
+
+
+
