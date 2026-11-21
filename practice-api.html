@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Practice</title>
+</head>
+<body>
+    <h1>Practice Fetch</h1>
+
+    <script>
+        async function loadMessage() {
+            try {
+                const response = await fetch("./sample.json");
+
+                if (!response.ok) {
+                    throw new Error("HTTP status " + response.status);
+                }
+
+                const data = await response.json();
+
+                if (typeof data?.message !== "string") {
+                    throw new Error("Expected a message in the response.");
+                }
+
+                console.log(data.message);
+            } catch (error) {
+                console.error("Could not load the message.", error);
+            }
+        }
+
+        loadMessage();
+    </script>
+</body>
+</html>
