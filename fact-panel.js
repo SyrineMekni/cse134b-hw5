@@ -34,6 +34,8 @@ class FactPanel extends HTMLElement {
 
         
         button.addEventListener("click", async () => {
+            try {
+            status.textContent = "Loading a new fact...";
             const response = await fetch("https://uselessfacts.jsph.pl/api/v2/facts/random?language=en");
             if (!response.ok) {
             throw new Error("HTTP status " + response.status);
@@ -41,6 +43,7 @@ class FactPanel extends HTMLElement {
             
     const data = await response.json();
     fact.textContent = data.text;
+    status.textContent = "New fact loaded successfully.";
 });
 
 
