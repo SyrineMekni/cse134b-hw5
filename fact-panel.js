@@ -19,21 +19,30 @@ class FactPanel extends HTMLElement {
         heading.textContent = "Pudology Fun Facts";
 
         const fact = document.createElement("p");
+        if (typeof data?.text !== "string") {
+           throw new Error("Expected a fact in the response.");
+        }
         fact.textContent = facts[current];
 
         const button = document.createElement("button");
         button.type = "button";
-        button.textContent = "Next Fact";
+        button.textContent = "Get Next Fact";
 
         const status = document.createElement("p");
         status.setAttribute("role", "status");
         status.textContent = "Showing fact 1 of " + facts.length + ".";
 
-        button.addEventListener("click", () => {
-            current = (current + 1) % facts.length;
-            fact.textContent = facts[current];
-            status.textContent = "Showing fact " + (current + 1) + " of " + facts.length + ".";
-        });
+        
+        button.addEventListener("click", async () => {
+            const response = await fetch("https://uselessfacts.jsph.pl/api/v2/facts/random?language=en");
+            if (!response.ok) {
+            throw new Error("HTTP status " + response.status);
+        }
+            
+    const data = await response.json();
+    fact.textContent = data.text;
+});
+
 
         this.appendChild(heading);
         this.appendChild(fact);
