@@ -28,7 +28,7 @@ class FactPanel extends HTMLElement {
         status.textContent = "Click Get New Fact to load a random fact.";
 
         button.addEventListener("click", async () => {
-            status.hidden = false;
+    
             status.textContent = "Loading a new fact...";
 
             try {
