@@ -287,4 +287,14 @@ body a {
 }
 
 
+/* HW5 Part 3 - Fun Facts component */
+fact-panel {
+    --panel-bg: var(--page-bg, white);
+    --panel-text: var(--page-text, black);
+
+    background-color: var(--panel-bg, white);
+    color: var(--panel-text, black);
+}
+
+
 
