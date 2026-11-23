@@ -27,9 +27,6 @@ class FactPanel extends HTMLElement {
         status.setAttribute("role", "status");
         status.textContent = "Click Get New Fact to load a random fact.";
         
-        const details = document.createElement("p");
-        details.className = "fact-details";
-        details.textContent = "Enjoy discovering something new!";
 
         button.addEventListener("click", async () => {
     
@@ -62,19 +59,20 @@ class FactPanel extends HTMLElement {
         this.appendChild(fact);
         this.appendChild(button);
         this.appendChild(status);
-        this.appendChild(details);
+        
 
         status.hidden = this.hasAttribute("compact");
     }
 
     
-    attributeChangedCallback() {
-        const details = this.querySelector(".fact-details");
+   
+attributeChangedCallback() {
+    const status = this.querySelector('[role="status"]');
 
-        if (details) {
-             details.hidden = this.hasAttribute("compact");
-        }
+    if (status) {
+        status.hidden = this.hasAttribute("compact");
     }
+}
 
 }
 
