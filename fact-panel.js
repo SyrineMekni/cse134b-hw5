@@ -109,7 +109,7 @@ toggleButton.addEventListener("click", () => {
         : "Hide Details";
 
     try {
-        throw new Error("Testing storage write failure");
+        
         localStorage.setItem(
             "hw5-fact-panel-mode",
             compact ? "compact" : "expanded"
