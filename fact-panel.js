@@ -80,7 +80,9 @@ const toggleButton = document.querySelector("#facts-toggle");
 let savedMode = "expanded";
 
 try {
+    throw new Error("Testing storage read failure");
     const storedMode = localStorage.getItem("hw5-fact-panel-mode");
+    
 
     if (storedMode === "compact" || storedMode === "expanded") {
         savedMode = storedMode;
