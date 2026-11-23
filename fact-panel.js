@@ -81,8 +81,33 @@ customElements.define("fact-panel", FactPanel);
 const factPanel = document.querySelector("fact-panel");
 const toggleButton = document.querySelector("#facts-toggle");
 
+
+let savedMode = "expanded";
+
+try {
+    const storedMode = localStorage.getItem("hw5-fact-panel-mode");
+
+    if (storedMode === "compact" || storedMode === "expanded") {
+        savedMode = storedMode;
+    }
+} catch (error) {
+    // Keep the default if storage is unavailable.
+}
+
+if (savedMode === "compact") {
+    factPanel.setAttribute("compact", "");
+    toggleButton.textContent = "Show Details";
+}
+
+
+
 toggleButton.addEventListener("click", () => {
     const compact = factPanel.toggleAttribute("compact");
+    try {
+    localStorage.setItem("hw5-fact-panel-mode", compact ? "compact" : "expanded");
+} catch (error) {
+    // The button still works if storage is unavailable.
+}
 
     toggleButton.textContent = compact
         ? "Show Details"
