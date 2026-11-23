@@ -76,6 +76,7 @@ customElements.define("fact-panel", FactPanel);
 
 const factPanel = document.querySelector("fact-panel");
 const toggleButton = document.querySelector("#facts-toggle");
+toggleButton.hidden = false;
 
 let savedMode = "expanded";
 
