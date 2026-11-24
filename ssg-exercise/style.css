@@ -1,0 +1,300 @@
+
+/* Syrine Mekni - Pudology website - HW3 Part 2 */
+/* set variables */
+:root {
+    --avocado-green: #1E431F;
+    --cream: #FFFCF2;
+    --turmeric-gold: #D99A16;
+    --beet-pink: #C83F68;
+    --spirulina-blue: #0047A1;
+    --light-avocado-green: #7F963D;
+    --cacao-brown: #482919;
+    
+    /* Light theme */
+    --terracotta: #B65F46;
+    --page-bg: var(--cream);
+    --page-text: black;
+    --heading-color: var(--avocado-green);
+    --link-color: var(--avocado-green);
+    --input-bg: white;
+    --input-text: black;
+    --input-border: var(--avocado-green);
+
+}
+
+
+body {
+    background-color: var(--page-bg);
+    color: var(--page-text);
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*center all the content page */
+header, main, footer {
+    text-align: center;
+}
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Make all headers green */
+h1, h2, h3 {
+    color: var(--heading-color);
+}
+/* set headers size */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+
+header {
+    padding: 32px;
+}
+
+main {
+    padding: 32px;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+footer {
+    padding: 32px;
+}
+nav a {
+    padding: 0.5em;
+}
+/* use root variable in Footer */ 
+/* Social Media link */
+footer a[href*="instagram"] {
+    color: var(--beet-pink);
+}
+
+/* Contact Us link */
+footer a[href*="contact"] {
+    color: var(--cacao-brown);
+}
+
+/* FAQ link */
+footer a[href*="faq"] {
+    color: var(--turmeric-gold);
+}
+
+/* Switch to vertical layout on mobile */
+@media (max-width: 640px) {
+    nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+}
+/* Make video fit in 357px */
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Descendant combinator: pad all navigation links */
+nav a {
+    padding: 0.5em;
+}
+
+/* Child combinator: pad every paragraph insde the footer*/
+footer > p {
+    margin-bottom: 0.5rem;
+}
+
+
+a:hover {
+    color: var(--link-color);
+}
+
+a:focus-visible {
+    outline: 3px solid var(--heading-color);
+}
+
+
+pudology-holiday {
+            display: block;
+            color: #1E431F;
+            border: 3px solid #C62828;
+            padding: 15px;
+        }
+
+/* HW4 Part 1 - Contact Form */
+
+form {
+    max-width: 500px;
+    margin: 2rem auto;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--input-text);
+}
+
+.form-group input:focus-visible,
+.form-group textarea:focus-visible,
+form button:focus-visible {
+    outline: 3px solid var(--turmeric-gold);
+    outline-offset: 2px;
+}
+
+form button {
+    background-color: var(--avocado-green);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: var(--cacao-brown);
+}
+
+/* HW4 Part 2 - Required Field Stars */
+
+.star-beet {
+    color: var(--beet-pink);
+    font-weight: bold;
+}
+
+.star-turmeric {
+    color:var(--turmeric-gold);
+    font-weight: bold;
+}
+
+.star-avocado {
+    color: var(--avocado-green);
+    font-weight: bold;
+}
+
+.name-limit {
+    color: var(--beet-pink);
+}
+
+.comments-limit {
+    color: var(--avocado-green);
+}
+
+.form-intro {
+    color: var(--turmeric-gold);
+    text-align: center;
+}
+
+.form-intro span {
+    display: block;
+}
+
+
+/* HW4 Part 2 - Form Validation */
+
+.form-group input:user-invalid,
+.form-group textarea:user-invalid {
+    border-color: var(--terracotta);
+}
+
+.form-group input:user-valid,
+.form-group textarea:user-valid {
+    border-color: var(--avocado-green);
+}
+
+/* Part 4 - setting Dark Theme */
+[data-theme="dark"] {
+    --page-bg: var(--cacao-brown);
+    --page-text: var(--cream);
+    --heading-color: var(--turmeric-gold);
+    --link-color: var(--turmeric-gold);
+    --input-bg: #382116;
+    --input-text: var(--cream);
+    --input-border: var(--turmeric-gold);
+    --terracotta: #FF9A80;
+}
+
+[data-theme="dark"] .comments-limit,
+[data-theme="dark"] .star-avocado {
+    color: #A8D68D;
+}
+
+
+body a {
+    color: var(--link-color);
+}
+
+/* Smooth transition between light and dark themes */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 0.01ms;
+    }
+}
+
+
+#character-counter.warning {
+    color: var(--terracotta);
+    font-weight: bold;
+}
+
+[data-theme="dark"] footer a[href*="contact"] {
+    color: var(--cream);
+}
+
+
+/* HW5 Part 3 - Fun Facts component */
+fact-panel {
+    --panel-bg: var(--page-bg, white);
+    --panel-text: var(--page-text, black);
+
+    background-color: var(--panel-bg, white);
+    color: var(--panel-text, black);
+}
+
+
+
